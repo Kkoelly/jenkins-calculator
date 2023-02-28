@@ -1,3 +1,5 @@
+import java.sql.Array;
+import java.util.*;
 
 class Calculator {
 
@@ -39,7 +41,23 @@ class Calculator {
     etc
      */
     int fibonacciNumberFinder(int n){
-        return 0;
+        int num = 0;
+        int y = 0;
+        int temp = 0;
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                num = 0;
+            }
+            else if (i == 1) {
+                num = 1;
+            }
+            else {
+                temp = y;
+                y = num;
+                num = num + temp;
+            }
+        }
+        return num;
     }
 
 
@@ -51,7 +69,16 @@ class Calculator {
     if int a = 16 then this method returns: 10000
      */
     String intToBinaryNumber(int n){
-        return null;
+        StringBuilder sb = new StringBuilder("");
+        if (n == 0) {
+            return "0";
+        }
+        while (n > 0) {
+            sb.append(String.valueOf(n % 2));
+            n = n / 2;
+        }
+        sb.reverse();
+        return sb.toString();
     }
 
     /*
@@ -63,8 +90,9 @@ class Calculator {
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
     String createUniqueID(String n){
-
-        return null;
+        String id = UUID.randomUUID().toString();
+        id += n;
+        return id;
     }
 
 
